@@ -15,18 +15,21 @@
         <div class="top-controls">
             <button class="play-button">Play</button>
             <div class="timer-container">
-                <!-- <p id="timer-label">Timer</p> -->
+                <p id="timer-label">Timer</p>
                 <div id="timer" class="timer">00:00:00</div>
             </div>
         </div>
     </div>
-    
 
-    <div class="sudoku-grid" id="sudoku-grid">
-    </div>
+    <div class="sudoku-grid" id="sudoku-grid"></div>
 
     <div id="popup" class="popup"></div>
-    <button class="clear-all-btn">Clear All</button>
+
+    <div class="controls">
+        <button class="reset-btn">Reset Game</button>
+        <button class="pause-btn">Pause</button>
+        <button class="clear-all-btn">Clear All</button>
+    </div>
 
     <div class="clear-all-confirm">
         <h3 id="clear-all-title">Are you Sure?</h3>
@@ -34,6 +37,15 @@
         <div class="confirm-buttons">
             <button id="clear-yes">Yes</button>
             <button id="clear-no">No</button>
+        </div>
+    </div>
+
+    <div class="reset-all-confirm">
+        <h3 id="reset-all-title">Are you Sure?</h3>
+        <p id="reset-all-msg">This will start a new game and cannot be undone.</p>
+        <div class="reset-confirm-buttons">
+            <button id="reset-yes">Yes</button>
+            <button id="reset-no">No</button>
         </div>
     </div>
 
