@@ -241,7 +241,7 @@ $clearAllNo.click(function () {
 });
 
 $pauseBtn.click(function () {
-    if(!sudokuSolved){
+    if(!sudokuSolved && gameStarted){
         clearInterval(timer);
         $('#game-msg').text('Game paused. Press Play to resume.');
         isRunning = false;
@@ -295,8 +295,6 @@ $(document).click(function (e) {
         closeResetAllMenu();
     }
 });
-
-
 
 function checkIssue(row, col, i) {
     let issue = false;
