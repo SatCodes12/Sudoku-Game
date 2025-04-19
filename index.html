@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="game-title">Welcome to Sudoku Game</h1>
+    <p id="game-msg">Press Play to Start</p>
+
+    <div class="top-wrapper">
+        <div class="top-controls">
+            <button class="play-button">Play</button>
+            <div class="timer-container">
+                <!-- <p id="timer-label">Timer</p> -->
+                <div id="timer" class="timer">00:00:00</div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="sudoku-grid" id="sudoku-grid">
+    </div>
+
+    <div id="popup" class="popup"></div>
+    <button class="clear-all-btn">Clear All</button>
+
+    <div class="clear-all-confirm">
+        <h3 id="clear-all-title">Are you Sure?</h3>
+        <p id="clear-all-msg">This will erase all non-fixed values and cannot be undone.</p>
+        <div class="confirm-buttons">
+            <button id="clear-yes">Yes</button>
+            <button id="clear-no">No</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
