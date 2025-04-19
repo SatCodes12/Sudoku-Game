@@ -241,10 +241,12 @@ $clearAllNo.click(function () {
 });
 
 $pauseBtn.click(function () {
-    clearInterval(timer);
-    $('#game-msg').text('Game paused. Press Play to resume.');
-    isRunning = false;
-    gameStarted = false;
+    if(!sudokuSolved){
+        clearInterval(timer);
+        $('#game-msg').text('Game paused. Press Play to resume.');
+        isRunning = false;
+        gameStarted = false;
+    }
 })
 
 $resetBtn.click(function (e) {
