@@ -12,18 +12,6 @@ const puzzleList = [
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
         [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ],
-
-    [
-        [0, 0, 0, 0, 6, 0, 0, 0, 0],
-        [0, 5, 9, 0, 0, 0, 0, 0, 8],
-        [0, 0, 0, 0, 0, 1, 3, 9, 0],
-        [5, 0, 0, 7, 0, 8, 0, 0, 6],
-        [0, 7, 0, 0, 0, 0, 0, 1, 0],
-        [6, 0, 0, 1, 0, 3, 0, 0, 5],
-        [0, 4, 1, 9, 0, 0, 0, 0, 0],
-        [2, 0, 0, 0, 0, 0, 5, 7, 0],
-        [0, 0, 0, 0, 2, 0, 0, 0, 0]
-    ],
     [
         [0, 0, 0, 2, 6, 0, 7, 0, 1],
         [6, 8, 0, 0, 7, 0, 0, 9, 0],
@@ -47,38 +35,16 @@ const puzzleList = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0]
     ],
     [
-        [2, 0, 0, 3, 0, 0, 0, 0, 0],
-        [8, 0, 4, 0, 6, 2, 0, 0, 3],
-        [0, 1, 3, 8, 0, 0, 2, 0, 0],
-        [0, 0, 0, 0, 2, 0, 3, 9, 0],
-        [5, 0, 7, 0, 0, 0, 6, 0, 1],
-        [0, 3, 2, 0, 5, 0, 0, 0, 0],
-        [0, 0, 1, 0, 0, 9, 7, 4, 0],
-        [7, 0, 0, 6, 1, 0, 5, 0, 8],
-        [0, 0, 0, 0, 0, 5, 0, 0, 9]
-    ],
-    [
-        [0, 2, 0, 6, 0, 8, 0, 0, 0],
-        [5, 8, 0, 0, 0, 9, 7, 0, 0],
-        [0, 0, 0, 0, 4, 0, 0, 0, 0],
-        [3, 7, 0, 0, 0, 0, 5, 0, 0],
-        [6, 0, 0, 0, 0, 0, 0, 0, 4],
-        [0, 0, 8, 0, 0, 0, 0, 1, 3],
-        [0, 0, 0, 0, 2, 0, 0, 0, 0],
-        [0, 0, 9, 8, 0, 0, 0, 3, 6],
-        [0, 0, 0, 3, 0, 6, 0, 9, 0]
-    ],
-    [
-        [0, 0, 0, 0, 0, 0, 0, 1, 2],
-        [0, 0, 0, 0, 0, 0, 7, 0, 0],
-        [0, 0, 0, 6, 0, 1, 0, 9, 0],
-        [0, 0, 0, 0, 7, 0, 0, 0, 0],
-        [0, 0, 0, 9, 0, 0, 0, 0, 8],
-        [0, 0, 3, 0, 0, 0, 4, 0, 0],
-        [0, 0, 1, 0, 0, 0, 0, 6, 0],
-        [9, 0, 0, 0, 0, 0, 2, 0, 0],
-        [0, 7, 0, 4, 0, 0, 0, 0, 0]
-    ],
+        [6, 0, 0, 8, 2, 7, 5, 0, 9],
+        [2, 5, 0, 0, 4, 0, 0, 3, 0],
+        [0, 0, 8, 0, 0, 1, 7, 0, 2],
+        [0, 0, 2, 4, 0, 0, 0, 0, 7],
+        [0, 6, 0, 7, 5, 0, 0, 8, 0],
+        [7, 4, 5, 2, 1, 0, 0, 0, 0],
+        [5, 6, 1, 0, 7, 0, 9, 2, 8],
+        [4, 0, 0, 0, 0, 0, 0, 0, 3],
+        [0, 0, 0, 9, 0, 2, 0, 1, 0]
+    ]
 ];
 
 let randomPuzzleIdx = (Math.floor(Math.random() * puzzleList.length));
@@ -104,21 +70,17 @@ $playBtn.click(function () {
     }
 });
 
-function updateDisplay() {
-    $('.timer').text(formatTime(seconds));
-}
-
 // Build the 9x9 sudoku grid
 buildGrid();
-function buildGrid(){
+function buildGrid() {
     $grid.empty();
     for (let g = 0; g < 9; g++) {
-        const $mini = $(`<div class="mini-grid" id="mini-grid-${g+1}"></div>`);
-        const startRow = Math.floor(g/3)*3;
-        const startCol = (g%3)*3;
+        const $mini = $(`<div class="mini-grid" id="mini-grid-${g + 1}"></div>`);
+        const startRow = Math.floor(g / 3) * 3;
+        const startCol = (g % 3) * 3;
 
         for (let i = 0; i < 9; i++) {
-            const row = startRow + Math.floor(i/3);
+            const row = startRow + Math.floor(i / 3);
             const col = startCol + (i % 3);
             const $cell = $(`<div class="cell" id="cell-${row}-${col}"></div>`);
             $mini.append($cell);
@@ -127,7 +89,7 @@ function buildGrid(){
         $grid.append($mini);
     }
 }
-    
+
 // Fill grid with values
 renderPuzzle(puzzle);
 function renderPuzzle(puzzle) {
@@ -241,7 +203,7 @@ $clearAllNo.click(function () {
 });
 
 $pauseBtn.click(function () {
-    if(!sudokuSolved && gameStarted){
+    if (!sudokuSolved && gameStarted) {
         clearInterval(timer);
         $('#game-msg').text('Game paused. Press Play to resume.');
         isRunning = false;
@@ -344,6 +306,10 @@ function checkSudokuSolved() {
         }
     }
     return true;
+}
+
+function updateDisplay() {
+    $('.timer').text(formatTime(seconds));
 }
 
 function formatTime(seconds) {
